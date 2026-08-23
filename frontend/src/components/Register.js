@@ -48,7 +48,7 @@ const Register = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/users/register/', {
+      const response = await axios.post('http://https://maspro-backend.onrender.com/api/users/register/', {
         username: formData.username,
         email: formData.email,
         password: formData.password

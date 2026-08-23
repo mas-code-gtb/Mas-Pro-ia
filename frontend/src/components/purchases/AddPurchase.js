@@ -29,7 +29,7 @@ const AddPurchase = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://127.0.0.1:8000/api/suppliers/suppliers/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/suppliers/suppliers/', config);
       setSuppliers(response.data);
     } catch (err) {
       console.error(' Erreur chargement fournisseurs:', err);
@@ -42,7 +42,7 @@ const AddPurchase = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://127.0.0.1:8000/api/products/products/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/products/products/', config);
       console.log(' Produits chargés:', response.data);
       setProducts(response.data);
     } catch (err) {
@@ -135,7 +135,7 @@ const AddPurchase = () => {
 
       console.log(' Données commande:', purchaseData);
 
-      const response = await axios.post('http://127.0.0.1:8000/api/purchases/purchase-orders/', purchaseData, config);
+      const response = await axios.post('http://https://maspro-backend.onrender.com/api/purchases/purchase-orders/', purchaseData, config);
       const purchaseId = response.data.id;
       console.log(' Commande créée, ID:', purchaseId);
 
@@ -151,7 +151,7 @@ const AddPurchase = () => {
         console.log(' Envoi ligne:', lineData);
 
         const lineResponse = await axios.post(
-          `http://127.0.0.1:8000/api/purchases/purchase-orders/${purchaseId}/add_line/`,
+          `http://https://maspro-backend.onrender.com/api/purchases/purchase-orders/${purchaseId}/add_line/`,
           lineData,
           config
         );

@@ -39,7 +39,7 @@ const AccountList = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://127.0.0.1:8000/api/accounting/accounts/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/accounting/accounts/', config);
       setAccounts(response.data);
       setFilteredAccounts(response.data);
       setLoading(false);
@@ -56,7 +56,7 @@ const AccountList = () => {
     setDeletingId(id);
     try {
       const token = localStorage.getItem('access_token');
-      await axios.delete(`http://127.0.0.1:8000/api/accounting/accounts/${id}/`, {
+      await axios.delete(`http://https://maspro-backend.onrender.com/api/accounting/accounts/${id}/`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       setAccounts(accounts.filter(a => a.id !== id));

@@ -39,7 +39,7 @@ const InvoiceList = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://127.0.0.1:8000/api/sales/invoices/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/sales/invoices/', config);
       setInvoices(response.data);
       setFilteredInvoices(response.data);
       setLoading(false);
@@ -56,7 +56,7 @@ const InvoiceList = () => {
     setDeletingId(id);
     try {
       const token = localStorage.getItem('access_token');
-      await axios.delete(`http://127.0.0.1:8000/api/sales/invoices/${id}/`, {
+      await axios.delete(`http://https://maspro-backend.onrender.com/api/sales/invoices/${id}/`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       setInvoices(invoices.filter(i => i.id !== id));
@@ -74,7 +74,7 @@ const InvoiceList = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      await axios.post(`http://127.0.0.1:8000/api/sales/invoices/${id}/send_email/`, {}, config);
+      await axios.post(`http://https://maspro-backend.onrender.com/api/sales/invoices/${id}/send_email/`, {}, config);
       toast.success(' Email envoyé avec succès !');
     } catch (err) {
       toast.error(' Erreur lors de l\'envoi de l\'email');
@@ -196,7 +196,7 @@ const InvoiceList = () => {
                 </div>
                 <div className="card-footer bg-transparent d-flex gap-2">
                   <a 
-                    href={`http://127.0.0.1:8000/api/sales/invoice/${invoice.id}/pdf/`}
+                    href={`http://https://maspro-backend.onrender.com/api/sales/invoice/${invoice.id}/pdf/`}
                     target="_blank"
                     className="btn btn-success btn-sm flex-grow-1"
                     rel="noopener noreferrer"

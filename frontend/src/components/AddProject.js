@@ -35,7 +35,7 @@ const AddProject = () => {
         }
       };
       
-      await axios.post('http://127.0.0.1:8000/api/projects/', formData, config);
+      await axios.post('http://https://maspro-backend.onrender.com/api/projects/', formData, config);
       
       // ✅ Notification de succès
       toast.success('✅ Projet créé avec succès !');

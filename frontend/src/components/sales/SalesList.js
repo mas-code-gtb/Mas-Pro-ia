@@ -40,7 +40,7 @@ const SalesList = () => {
         headers: { 'Authorization': `Bearer ${token}` }
       };
       // ⭐ CORRECTION : sales-orders → salesorders (sans tiret)
-      const response = await axios.get('http://127.0.0.1:8000/api/sales/salesorders/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/sales/salesorders/', config);
       setSales(response.data);
       setFilteredSales(response.data);
       setLoading(false);
@@ -58,7 +58,7 @@ const SalesList = () => {
     try {
       const token = localStorage.getItem('access_token');
       // ⭐ CORRECTION : sales-orders → salesorders (sans tiret)
-      await axios.delete(`http://127.0.0.1:8000/api/sales/salesorders/${id}/`, {
+      await axios.delete(`http://https://maspro-backend.onrender.com/api/sales/salesorders/${id}/`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       setSales(sales.filter(s => s.id !== id));

@@ -36,7 +36,7 @@ const EditPayment = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get(`http://127.0.0.1:8000/api/payments/payments/${id}/`, config);
+      const response = await axios.get(`http://https://maspro-backend.onrender.com/api/payments/payments/${id}/`, config);
       setFormData(response.data);
       setLoading(false);
     } catch (err) {
@@ -52,7 +52,7 @@ const EditPayment = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://127.0.0.1:8000/api/clients/clients/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/clients/clients/', config);
       setClients(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -65,7 +65,7 @@ const EditPayment = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://127.0.0.1:8000/api/sales/invoices/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/sales/invoices/', config);
       setInvoices(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -78,7 +78,7 @@ const EditPayment = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://127.0.0.1:8000/api/payments/methods/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/payments/methods/', config);
       setPaymentMethods(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -127,7 +127,7 @@ const EditPayment = () => {
 
       console.log(' Données modification:', paymentData);
 
-      await axios.put(`http://127.0.0.1:8000/api/payments/payments/${id}/`, paymentData, config);
+      await axios.put(`http://https://maspro-backend.onrender.com/api/payments/payments/${id}/`, paymentData, config);
 
       toast.success(' Paiement modifié avec succès !');
       navigate('/payments');

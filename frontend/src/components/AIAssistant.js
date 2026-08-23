@@ -114,7 +114,7 @@ const AIAssistant = () => {
       }
 
       const response = await axios.post(
-        'http://127.0.0.1:8000/api/ai/chat/',
+        'http://https://maspro-backend.onrender.com/api/ai/chat/',
         {
           message: userMessage,
           context: 'Assistant IA Mas-Pro AI',

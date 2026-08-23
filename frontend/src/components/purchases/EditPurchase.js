@@ -31,7 +31,7 @@ const EditPurchase = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get(`http://127.0.0.1:8000/api/purchases/purchase-orders/${id}/`, config);
+      const response = await axios.get(`http://https://maspro-backend.onrender.com/api/purchases/purchase-orders/${id}/`, config);
       setFormData({
         supplier: response.data.supplier,
         order_number: response.data.order_number,
@@ -63,7 +63,7 @@ const EditPurchase = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://127.0.0.1:8000/api/suppliers/suppliers/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/suppliers/suppliers/', config);
       setSuppliers(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -76,7 +76,7 @@ const EditPurchase = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://127.0.0.1:8000/api/products/products/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/products/products/', config);
       console.log(' Produits chargés:', response.data);
       setProducts(response.data);
     } catch (err) {
@@ -161,7 +161,7 @@ const EditPurchase = () => {
 
       console.log(' Données modification:', purchaseData);
 
-      await axios.put(`http://127.0.0.1:8000/api/purchases/purchase-orders/${id}/`, purchaseData, config);
+      await axios.put(`http://https://maspro-backend.onrender.com/api/purchases/purchase-orders/${id}/`, purchaseData, config);
 
       toast.success(' Commande modifiée avec succès !');
       navigate('/purchases');

@@ -39,7 +39,7 @@ const PurchaseList = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://127.0.0.1:8000/api/purchases/purchase-orders/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/purchases/purchase-orders/', config);
       setPurchases(response.data);
       setFilteredPurchases(response.data);
       setLoading(false);
@@ -56,7 +56,7 @@ const PurchaseList = () => {
     setDeletingId(id);
     try {
       const token = localStorage.getItem('access_token');
-      await axios.delete(`http://127.0.0.1:8000/api/purchases/purchase-orders/${id}/`, {
+      await axios.delete(`http://https://maspro-backend.onrender.com/api/purchases/purchase-orders/${id}/`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       setPurchases(purchases.filter(p => p.id !== id));

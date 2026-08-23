@@ -35,7 +35,7 @@ const UserList = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://127.0.0.1:8000/api/users/users/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/users/users/', config);
       console.log(' Utilisateurs chargés:', response.data);
       setUsers(response.data);
       setFilteredUsers(response.data);

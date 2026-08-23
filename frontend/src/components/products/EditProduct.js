@@ -40,7 +40,7 @@ const EditProduct = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get(`http://127.0.0.1:8000/api/products/products/${id}/`, config);
+      const response = await axios.get(`http://https://maspro-backend.onrender.com/api/products/products/${id}/`, config);
       setFormData(response.data);
       setLoading(false);
     } catch (err) {
@@ -56,7 +56,7 @@ const EditProduct = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://127.0.0.1:8000/api/products/categories/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/products/categories/', config);
       setCategories(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -69,7 +69,7 @@ const EditProduct = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://127.0.0.1:8000/api/companies/companies/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/companies/companies/', config);
       setCompanies(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -115,7 +115,7 @@ const EditProduct = () => {
         }
       };
 
-      await axios.put(`http://127.0.0.1:8000/api/products/products/${id}/`, dataToSend, config);
+      await axios.put(`http://https://maspro-backend.onrender.com/api/products/products/${id}/`, dataToSend, config);
       toast.success(' Produit modifié avec succès !');
       navigate('/products');
     } catch (err) {

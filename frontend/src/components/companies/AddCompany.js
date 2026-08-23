@@ -40,7 +40,7 @@ const AddCompany = () => {
         }
       };
 
-      await axios.post('http://127.0.0.1:8000/api/companies/companies/', formData, config);
+      await axios.post('http://https://maspro-backend.onrender.com/api/companies/companies/', formData, config);
       toast.success(' Entreprise créée avec succès !');
       navigate('/companies');
     } catch (err) {

@@ -45,7 +45,7 @@ const CompanyList = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://127.0.0.1:8000/api/companies/companies/', config);
+      const response = await axios.get('http://https://maspro-backend.onrender.com/api/companies/companies/', config);
       setCompanies(response.data);
       setFilteredCompanies(response.data);
       setLoading(false);
@@ -62,7 +62,7 @@ const CompanyList = () => {
     setDeletingId(id);
     try {
       const token = localStorage.getItem('access_token');
-      await axios.delete(`http://127.0.0.1:8000/api/companies/companies/${id}/`, {
+      await axios.delete(`http://https://maspro-backend.onrender.com/api/companies/companies/${id}/`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       setCompanies(companies.filter(c => c.id !== id));
