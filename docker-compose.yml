@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  # Base de données PostgreSQL
+  db:
+    image: postgres:15-alpine
+    container_name: maspro_db
+    restart: always
+    environment:
+      POSTGRES_DB: maspro_ai_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - maspro_network
+
+  # Backend Django
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: maspro_backend
+    restart: always
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DB_NAME=maspro_ai_db
+      - DB_USER=postgres
+      - DB_PASSWORD=admin
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DEBUG=True
+    networks:
+      - maspro_network
+
+  # Frontend React
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: maspro_frontend
+    restart: always
+    command: npm start
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - WDS_SOCKET_PORT=0
+    networks:
+      - maspro_network
+
+# Volumes persistants
+volumes:
+  postgres_data:
+
+# Réseau partagé
+networks:
+  maspro_network:
+    driver: bridge
