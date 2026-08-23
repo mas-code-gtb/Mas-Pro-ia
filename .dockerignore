@@ -38,12 +38,3 @@ frontend/.env
 
 # Logs
 *.log
-
-# Docker
-Dockerfile
-docker-compose.yml
-
-# Autres
-*.md
-*.txt
-*.json
