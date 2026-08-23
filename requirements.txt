@@ -9,3 +9,4 @@ groq==0.9.0
 django-webpush==0.3.3
 dj-database-url==2.2.0
 gunicorn==22.0.0
+httpx==0.27.2
