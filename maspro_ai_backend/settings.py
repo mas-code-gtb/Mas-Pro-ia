@@ -14,6 +14,7 @@ from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
 import os
+import dj_database_url
 
 load_dotenv()
 
@@ -109,14 +110,10 @@ WSGI_APPLICATION = 'maspro_ai_backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'maspro_ai_db',
-        'USER': 'postgres',
-        'PASSWORD': 'admin',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default='postgresql://postgres:admin@localhost:5432/maspro_ai_db',
+        conn_max_age=600,
+    )
 }
 
 
@@ -151,156 +148,4 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
-STATIC_URL = 'static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# ============================================
-# CONFIGURATION REST FRAMEWORK
-# ============================================
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ),
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',  # ← MODIFIÉ pour permettre l'accès sans auth
-    ]
-}
-
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-}
-
-# Redirection après connexion (DRF)
-LOGIN_REDIRECT_URL = '/api/projects/'
-LOGOUT_REDIRECT_URL = '/api/projects/'
-
-
-# ============================================
-# CONFIGURATION IA
-# ============================================
-
-OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
-AI_ENABLED = bool(OPENAI_API_KEY)
-AI_MODEL = os.environ.get('AI_MODEL', 'gpt-3.5-turbo')
-
-
-# ============================================
-# CONFIGURATION EMAIL
-# ============================================
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'dioufmassamba440@gmail.com'
-EMAIL_HOST_PASSWORD = 'ften nldw gjap sbaj'
-DEFAULT_FROM_EMAIL = 'Mas-Pro AI <dioufmassamba440@gmail.com>'
-
-
-# ============================================
-# WEB PUSH NOTIFICATIONS
-# ============================================
-
-WEBPUSH_SETTINGS = {
-    "VAPID_PUBLIC_KEY": "BPcX8...",
-    "VAPID_PRIVATE_KEY": "E...",
-    "VAPID_ADMIN_EMAIL": "admin@maspro.ai"
-}
-
-
-# ============================================
-# DEVISES
-# ============================================
-
-CURRENCY = 'FCFA'
-CURRENCY_SYMBOL = 'CFA'
-
-
-# ============================================
-# CORS CONFIGURATION (POUR FLUTTER)
-# ============================================
-
-# Autoriser toutes les origines pour le développement
-CORS_ALLOW_ALL_ORIGINS = True
-
-# Autoriser les origines spécifiques
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://192.168.145.246:8000",
-    "http://localhost:56051",  # Port Flutter Web
-    "http://10.0.2.2:8000",    # Émulateur Android
-    "http://192.168.1.*:8000", # IP locales
-]
-
-CORS_ALLOW_CREDENTIALS = True
-
-CORS_ALLOW_METHODS = [
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-]
-
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-]
-
-
-# ============================================
-# AUTH USER MODEL (si vous utilisez un modèle personnalisé)
-# ============================================
-
-# AUTH_USER_MODEL = 'users.User'  # Décommentez si vous avez un modèle User personnalisé
-
-
-# ============================================
-# LOGGING (pour le débogage)
-# ============================================
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'root': {
-        'handlers': ['console'],
-        'level': 'INFO',
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-        'django.request': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-    },
-}
+# Static files

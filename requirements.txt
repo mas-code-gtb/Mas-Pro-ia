@@ -7,3 +7,5 @@ python-dotenv==1.0.0
 reportlab==4.2.0
 groq==0.9.0
 django-webpush==0.3.3
+dj-database-url==2.2.0
+gunicorn==22.0.0
