@@ -82,7 +82,7 @@ const EditAccount = () => {
       };
 
       const accountData = {
-        company: 2,
+        company: 1,,
         code: formData.code,
         name: formData.name,
         type: formData.type,

@@ -123,7 +123,7 @@ const AddSale = () => {
       }
 
       const saleData = {
-        company: 2,
+        company: 1,,
         client: parseInt(formData.client),
         order_number: formData.order_number,
         delivery_date: formData.delivery_date || null,

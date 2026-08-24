@@ -150,9 +150,9 @@ const EditPurchase = () => {
         return;
       }
 
-      //  AJOUT DE company: 2
+      //  AJOUT DE company: 1,
       const purchaseData = {
-        company: 2,
+        company: 1,,
         supplier: parseInt(formData.supplier),
         order_number: formData.order_number,
         expected_delivery_date: formData.expected_delivery_date,

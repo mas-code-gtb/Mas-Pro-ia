@@ -126,7 +126,7 @@ const AddPurchase = () => {
 
       // 👇 ID de l'entreprise Mas-Pro (2)
       const purchaseData = {
-        company: 2,
+        company: 1,
         supplier: parseInt(formData.supplier),
         order_number: formData.order_number,
         expected_delivery_date: formData.expected_delivery_date,
