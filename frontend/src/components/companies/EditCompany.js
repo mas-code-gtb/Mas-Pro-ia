@@ -32,7 +32,7 @@ const EditCompany = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get(`http://https://maspro-backend.onrender.com/api/companies/companies/${id}/`, config);
+      const response = await axios.get(`https://maspro-backend.onrender.com/api/companies/companies/${id}/`, config);
       setFormData(response.data);
       setLoading(false);
     } catch (err) {
@@ -62,7 +62,7 @@ const EditCompany = () => {
         }
       };
 
-      await axios.put(`http://https://maspro-backend.onrender.com/api/companies/companies/${id}/`, formData, config);
+      await axios.put(`https://maspro-backend.onrender.com/api/companies/companies/${id}/`, formData, config);
       toast.success(' Entreprise modifiée avec succès !');
       navigate('/companies');
     } catch (err) {

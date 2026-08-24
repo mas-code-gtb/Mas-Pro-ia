@@ -103,15 +103,15 @@ const Dashboard = () => {
         salesData,
         invoicesData
       ] = await Promise.all([
-        fetchData('http://https://maspro-backend.onrender.com/api/companies/companies/'),
-        fetchData('http://https://maspro-backend.onrender.com/api/users/users/'),
-        fetchData('http://https://maspro-backend.onrender.com/api/clients/clients/'),
-        fetchData('http://https://maspro-backend.onrender.com/api/products/products/'),
-        fetchData('http://https://maspro-backend.onrender.com/api/suppliers/suppliers/'),
-        fetchData('http://https://maspro-backend.onrender.com/api/purchases/purchase-orders/'),
+        fetchData('https://maspro-backend.onrender.com/api/companies/companies/'),
+        fetchData('https://maspro-backend.onrender.com/api/users/users/'),
+        fetchData('https://maspro-backend.onrender.com/api/clients/clients/'),
+        fetchData('https://maspro-backend.onrender.com/api/products/products/'),
+        fetchData('https://maspro-backend.onrender.com/api/suppliers/suppliers/'),
+        fetchData('https://maspro-backend.onrender.com/api/purchases/purchase-orders/'),
         // ⭐ CORRECTION : sales-orders → salesorders (sans tiret)
-        fetchData('http://https://maspro-backend.onrender.com/api/sales/salesorders/'),
-        fetchData('http://https://maspro-backend.onrender.com/api/sales/invoices/'),
+        fetchData('https://maspro-backend.onrender.com/api/sales/salesorders/'),
+        fetchData('https://maspro-backend.onrender.com/api/sales/invoices/'),
       ]);
 
       stats.companies = companiesData?.length || 0;

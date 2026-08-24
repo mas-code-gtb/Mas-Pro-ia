@@ -33,7 +33,7 @@ const AddPayment = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/clients/clients/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/clients/clients/', config);
       setClients(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -46,7 +46,7 @@ const AddPayment = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/sales/invoices/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/sales/invoices/', config);
       setInvoices(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -59,7 +59,7 @@ const AddPayment = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/payments/methods/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/payments/methods/', config);
       setPaymentMethods(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -108,7 +108,7 @@ const AddPayment = () => {
 
       console.log(' Données paiement:', paymentData);
 
-      await axios.post('http://https://maspro-backend.onrender.com/api/payments/payments/', paymentData, config);
+      await axios.post('https://maspro-backend.onrender.com/api/payments/payments/', paymentData, config);
 
       toast.success(' Paiement créé avec succès !');
       navigate('/payments');

@@ -22,9 +22,9 @@ const Reports = () => {
       };
 
       const [salesRes, productRes, clientRes] = await Promise.all([
-        axios.get('http://https://maspro-backend.onrender.com/api/analytics/analytics/sales_overview/', config),
-        axios.get('http://https://maspro-backend.onrender.com/api/analytics/analytics/product_performance/', config),
-        axios.get('http://https://maspro-backend.onrender.com/api/analytics/analytics/client_analysis/', config),
+        axios.get('https://maspro-backend.onrender.com/api/analytics/analytics/sales_overview/', config),
+        axios.get('https://maspro-backend.onrender.com/api/analytics/analytics/product_performance/', config),
+        axios.get('https://maspro-backend.onrender.com/api/analytics/analytics/client_analysis/', config),
       ]);
 
       setSalesData(salesRes.data);

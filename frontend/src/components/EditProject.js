@@ -29,7 +29,7 @@ const EditProject = () => {
         }
       };
       
-      const response = await axios.get(`http://https://maspro-backend.onrender.com/api/projects/${id}/`, config);
+      const response = await axios.get(`https://maspro-backend.onrender.com/api/projects/${id}/`, config);
       setFormData({
         name: response.data.name,
         description: response.data.description || '',
@@ -66,7 +66,7 @@ const EditProject = () => {
         }
       };
       
-      await axios.put(`http://https://maspro-backend.onrender.com/api/projects/${id}/`, formData, config);
+      await axios.put(`https://maspro-backend.onrender.com/api/projects/${id}/`, formData, config);
       
       // ✅ Notification de succès
       toast.success('✅ Projet modifié avec succès !');

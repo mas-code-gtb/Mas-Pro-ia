@@ -33,7 +33,7 @@ const EditSale = () => {
         headers: { 'Authorization': `Bearer ${token}` }
       };
       // ⭐ CORRECTION : sales-orders → salesorders (sans tiret)
-      const response = await axios.get(`http://https://maspro-backend.onrender.com/api/sales/salesorders/${id}/`, config);
+      const response = await axios.get(`https://maspro-backend.onrender.com/api/sales/salesorders/${id}/`, config);
       setFormData({
         client: response.data.client,
         order_number: response.data.order_number,
@@ -64,7 +64,7 @@ const EditSale = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/clients/clients/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/clients/clients/', config);
       setClients(response.data);
     } catch (err) {
       console.error('Erreur chargement clients:', err);
@@ -77,7 +77,7 @@ const EditSale = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/products/products/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/products/products/', config);
       setProducts(response.data);
     } catch (err) {
       console.error('Erreur chargement produits:', err);
@@ -160,7 +160,7 @@ const EditSale = () => {
       console.log(' Données modification:', saleData);
 
       // ⭐ CORRECTION : sales-orders → salesorders (sans tiret)
-      await axios.put(`http://https://maspro-backend.onrender.com/api/sales/salesorders/${id}/`, saleData, config);
+      await axios.put(`https://maspro-backend.onrender.com/api/sales/salesorders/${id}/`, saleData, config);
 
       toast.success('✅ Vente modifiée avec succès !');
       navigate('/sales');

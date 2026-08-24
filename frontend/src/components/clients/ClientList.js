@@ -39,7 +39,7 @@ const ClientList = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/clients/clients/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/clients/clients/', config);
       setClients(response.data);
       setFilteredClients(response.data);
       setLoading(false);
@@ -56,7 +56,7 @@ const ClientList = () => {
     setDeletingId(id);
     try {
       const token = localStorage.getItem('access_token');
-      await axios.delete(`http://https://maspro-backend.onrender.com/api/clients/clients/${id}/`, {
+      await axios.delete(`https://maspro-backend.onrender.com/api/clients/clients/${id}/`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       setClients(clients.filter(c => c.id !== id));

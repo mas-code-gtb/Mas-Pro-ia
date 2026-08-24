@@ -33,7 +33,7 @@ const EditClient = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get(`http://https://maspro-backend.onrender.com/api/clients/clients/${id}/`, config);
+      const response = await axios.get(`https://maspro-backend.onrender.com/api/clients/clients/${id}/`, config);
       setFormData(response.data);
       setLoading(false);
     } catch (err) {
@@ -49,7 +49,7 @@ const EditClient = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/companies/companies/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/companies/companies/', config);
       setCompanies(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -98,7 +98,7 @@ const EditClient = () => {
 
       console.log('📤 Données modification:', dataToSend);
 
-      await axios.put(`http://https://maspro-backend.onrender.com/api/clients/clients/${id}/`, dataToSend, config);
+      await axios.put(`https://maspro-backend.onrender.com/api/clients/clients/${id}/`, dataToSend, config);
 
       toast.success(' Client modifié avec succès !');
       navigate('/clients');

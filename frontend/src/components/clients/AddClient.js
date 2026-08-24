@@ -30,7 +30,7 @@ const AddClient = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/companies/companies/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/companies/companies/', config);
       setCompanies(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -57,7 +57,7 @@ const AddClient = () => {
         }
       };
 
-      await axios.post('http://https://maspro-backend.onrender.com/api/clients/clients/', formData, config);
+      await axios.post('https://maspro-backend.onrender.com/api/clients/clients/', formData, config);
       toast.success(' Client créé avec succès !');
       navigate('/clients');
     } catch (err) {

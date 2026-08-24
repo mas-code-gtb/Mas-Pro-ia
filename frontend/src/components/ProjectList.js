@@ -21,7 +21,7 @@ const ProjectList = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/projects/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/projects/', config);
       setProjects(response.data);
       setLoading(false);
     } catch (err) {
@@ -36,7 +36,7 @@ const ProjectList = () => {
     setDeletingId(id);
     try {
       const token = localStorage.getItem('access_token');
-      await axios.delete(`http://https://maspro-backend.onrender.com/api/projects/${id}/`, {
+      await axios.delete(`https://maspro-backend.onrender.com/api/projects/${id}/`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       setProjects(projects.filter(p => p.id !== id));

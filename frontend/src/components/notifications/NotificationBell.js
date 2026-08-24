@@ -20,7 +20,7 @@ const NotificationBell = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/notifications/notifications/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/notifications/notifications/', config);
       setNotifications(response.data);
       setUnreadCount(response.data.filter(n => !n.is_read).length);
     } catch (err) {
@@ -34,7 +34,7 @@ const NotificationBell = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/notifications/notifications/unread_count/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/notifications/notifications/unread_count/', config);
       setUnreadCount(response.data.unread_count);
     } catch (err) {
       console.error('Erreur:', err);
@@ -47,7 +47,7 @@ const NotificationBell = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      await axios.post(`http://https://maspro-backend.onrender.com/api/notifications/notifications/${id}/mark_read/`, {}, config);
+      await axios.post(`https://maspro-backend.onrender.com/api/notifications/notifications/${id}/mark_read/`, {}, config);
       setNotifications(notifications.map(n => 
         n.id === id ? { ...n, is_read: true } : n
       ));
@@ -63,7 +63,7 @@ const NotificationBell = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      await axios.post('http://https://maspro-backend.onrender.com/api/notifications/notifications/mark_all_read/', {}, config);
+      await axios.post('https://maspro-backend.onrender.com/api/notifications/notifications/mark_all_read/', {}, config);
       setNotifications(notifications.map(n => ({ ...n, is_read: true })));
       setUnreadCount(0);
       toast.success(' Toutes les notifications lues');

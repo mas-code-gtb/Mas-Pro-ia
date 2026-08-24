@@ -29,7 +29,7 @@ const EditAccount = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get(`http://https://maspro-backend.onrender.com/api/accounting/accounts/${id}/`, config);
+      const response = await axios.get(`https://maspro-backend.onrender.com/api/accounting/accounts/${id}/`, config);
       setFormData(response.data);
       setLoading(false);
     } catch (err) {
@@ -45,7 +45,7 @@ const EditAccount = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/accounting/accounts/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/accounting/accounts/', config);
       setParentAccounts(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -92,7 +92,7 @@ const EditAccount = () => {
 
       console.log(' Données modification:', accountData);
 
-      await axios.put(`http://https://maspro-backend.onrender.com/api/accounting/accounts/${id}/`, accountData, config);
+      await axios.put(`https://maspro-backend.onrender.com/api/accounting/accounts/${id}/`, accountData, config);
 
       toast.success(' Compte modifié avec succès !');
       navigate('/accounting');

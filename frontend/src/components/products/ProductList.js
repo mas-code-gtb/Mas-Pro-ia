@@ -41,7 +41,7 @@ const ProductList = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/products/products/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/products/products/', config);
       setProducts(response.data);
       setFilteredProducts(response.data);
       setLoading(false);
@@ -58,7 +58,7 @@ const ProductList = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/products/categories/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/products/categories/', config);
       setCategories(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -71,7 +71,7 @@ const ProductList = () => {
     setDeletingId(id);
     try {
       const token = localStorage.getItem('access_token');
-      await axios.delete(`http://https://maspro-backend.onrender.com/api/products/products/${id}/`, {
+      await axios.delete(`https://maspro-backend.onrender.com/api/products/products/${id}/`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       setProducts(products.filter(p => p.id !== id));

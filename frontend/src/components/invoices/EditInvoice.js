@@ -31,7 +31,7 @@ const EditInvoice = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get(`http://https://maspro-backend.onrender.com/api/sales/invoices/${id}/`, config);
+      const response = await axios.get(`https://maspro-backend.onrender.com/api/sales/invoices/${id}/`, config);
       setFormData({
         client: response.data.client,
         invoice_number: response.data.invoice_number,
@@ -62,7 +62,7 @@ const EditInvoice = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/clients/clients/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/clients/clients/', config);
       setClients(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -75,7 +75,7 @@ const EditInvoice = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/products/products/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/products/products/', config);
       setProducts(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -157,7 +157,7 @@ const EditInvoice = () => {
 
       console.log(' Données modification:', invoiceData);
 
-      await axios.put(`http://https://maspro-backend.onrender.com/api/sales/invoices/${id}/`, invoiceData, config);
+      await axios.put(`https://maspro-backend.onrender.com/api/sales/invoices/${id}/`, invoiceData, config);
 
       toast.success(' Facture modifiée avec succès !');
       navigate('/invoices');

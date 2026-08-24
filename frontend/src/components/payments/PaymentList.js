@@ -39,7 +39,7 @@ const PaymentList = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/payments/payments/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/payments/payments/', config);
       setPayments(response.data);
       setFilteredPayments(response.data);
       setLoading(false);
@@ -56,7 +56,7 @@ const PaymentList = () => {
     setDeletingId(id);
     try {
       const token = localStorage.getItem('access_token');
-      await axios.delete(`http://https://maspro-backend.onrender.com/api/payments/payments/${id}/`, {
+      await axios.delete(`https://maspro-backend.onrender.com/api/payments/payments/${id}/`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       setPayments(payments.filter(p => p.id !== id));

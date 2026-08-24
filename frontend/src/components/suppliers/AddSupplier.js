@@ -33,7 +33,7 @@ const AddSupplier = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/companies/companies/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/companies/companies/', config);
       setCompanies(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -60,7 +60,7 @@ const AddSupplier = () => {
         }
       };
 
-      await axios.post('http://https://maspro-backend.onrender.com/api/suppliers/suppliers/', formData, config);
+      await axios.post('https://maspro-backend.onrender.com/api/suppliers/suppliers/', formData, config);
       toast.success(' Fournisseur créé avec succès !');
       navigate('/suppliers');
     } catch (err) {

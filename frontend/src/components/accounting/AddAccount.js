@@ -26,7 +26,7 @@ const AddAccount = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/accounting/accounts/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/accounting/accounts/', config);
       setParentAccounts(response.data);
     } catch (err) {
       console.error('Erreur:', err);
@@ -73,7 +73,7 @@ const AddAccount = () => {
 
       console.log(' Données compte:', accountData);
 
-      await axios.post('http://https://maspro-backend.onrender.com/api/accounting/accounts/', accountData, config);
+      await axios.post('https://maspro-backend.onrender.com/api/accounting/accounts/', accountData, config);
 
       toast.success(' Compte créé avec succès !');
       navigate('/accounting');

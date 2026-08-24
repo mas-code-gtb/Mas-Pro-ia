@@ -28,7 +28,7 @@ const AddInvoice = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/clients/clients/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/clients/clients/', config);
       setClients(response.data);
     } catch (err) {
       console.error(' Erreur chargement clients:', err);
@@ -41,7 +41,7 @@ const AddInvoice = () => {
       const config = {
         headers: { 'Authorization': `Bearer ${token}` }
       };
-      const response = await axios.get('http://https://maspro-backend.onrender.com/api/products/products/', config);
+      const response = await axios.get('https://maspro-backend.onrender.com/api/products/products/', config);
       setProducts(response.data);
     } catch (err) {
       console.error('❌ Erreur chargement produits:', err);
@@ -130,7 +130,7 @@ const AddInvoice = () => {
 
       console.log(' Données facture:', invoiceData);
 
-      const response = await axios.post('http://https://maspro-backend.onrender.com/api/sales/invoices/', invoiceData, config);
+      const response = await axios.post('https://maspro-backend.onrender.com/api/sales/invoices/', invoiceData, config);
       const invoiceId = response.data.id;
 
       for (const line of validLines) {
@@ -144,7 +144,7 @@ const AddInvoice = () => {
         console.log(' Envoi ligne:', lineData);
 
         await axios.post(
-          `http://https://maspro-backend.onrender.com/api/sales/invoices/${invoiceId}/add_line/`,
+          `https://maspro-backend.onrender.com/api/sales/invoices/${invoiceId}/add_line/`,
           lineData,
           config
         );

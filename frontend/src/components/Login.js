@@ -27,7 +27,7 @@ const Login = () => {
     try {
       console.log(' Tentative de connexion avec:', formData.username);
       
-      const response = await axios.post('http://https://maspro-backend.onrender.com/api/token/', {
+      const response = await axios.post('https://maspro-backend.onrender.com/api/token/', {
         username: formData.username,
         password: formData.password
       });
