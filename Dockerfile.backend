@@ -1,26 +1,19 @@
-# Utiliser l'image Python officielle
+﻿# Utiliser l'image Python officielle
 FROM python:3.11-slim
-
-# Définir le répertoire de travail
+# Definir le repertoire de travail
 WORKDIR /app
-
-# Installer les dépendances système pour PostgreSQL et autres
+# Installer les dependances systeme pour PostgreSQL et autres
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     gcc \
     && rm -rf /var/lib/apt/lists/*
-
 # Copier le fichier requirements.txt
 COPY requirements.txt .
-
-# Installer les dépendances Python
+# Installer les dependances Python
 RUN pip install --no-cache-dir -r requirements.txt
-
 # Copier tout le code du backend
 COPY . .
-
 # Exposer le port 8000
 EXPOSE 8000
-
-# Commande pour démarrer Django : fichiers statiques, migrations, creation admin, puis gunicorn
-CMD python manage.py collectstatic --noinput && python manage.py migrate --noinput && python manage.py create_admin && gunicorn maspro_ai_backend.wsgi:application --bind 0.0.0.0:$PORT
+# Commande pour demarrer Django : fichiers statiques, migrations, creation admin, categories, puis gunicorn
+CMD python manage.py collectstatic --noinput && python manage.py migrate --noinput && python manage.py create_admin && python manage.py create_categories && gunicorn maspro_ai_backend.wsgi:application --bind 0.0.0.0:$PORT
