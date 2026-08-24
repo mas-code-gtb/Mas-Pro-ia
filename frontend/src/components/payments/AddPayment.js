@@ -95,7 +95,7 @@ const AddPayment = () => {
       };
 
       const paymentData = {
-        company: 1,,
+        company: 1,
         client: parseInt(formData.client) || null,
         invoice: parseInt(formData.invoice) || null,
         payment_method: parseInt(formData.payment_method) || null,

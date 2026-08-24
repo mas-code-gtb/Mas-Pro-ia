@@ -148,7 +148,7 @@ const EditInvoice = () => {
       }
 
       const invoiceData = {
-        company: 1,,
+        company: 1,
         client: parseInt(formData.client),
         invoice_number: formData.invoice_number,
         due_date: formData.due_date,

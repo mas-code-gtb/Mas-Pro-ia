@@ -150,7 +150,7 @@ const EditSale = () => {
       }
 
       const saleData = {
-        company: 1,,
+        company: 1,
         client: parseInt(formData.client),
         order_number: formData.order_number,
         delivery_date: formData.delivery_date || null,
