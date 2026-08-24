@@ -132,7 +132,7 @@ const AddSale = () => {
 
       console.log(' Données vente:', saleData);
 
-      const response = await axios.post('https://maspro-backend.onrender.com/api/sales/sales-orders/', saleData, config);
+      const response = await axios.post('https://maspro-backend.onrender.com/api/sales/salesorders/', saleData, config);
       const saleId = response.data.id;
       console.log(' Vente créée, ID:', saleId);
 
@@ -147,7 +147,7 @@ const AddSale = () => {
         console.log(' Envoi ligne:', lineData);
 
         await axios.post(
-          `https://maspro-backend.onrender.com/api/sales/sales-orders/${saleId}/add_line/`,
+          `https://maspro-backend.onrender.com/api/sales/salesorders/${saleId}/add_line/`,
           lineData,
           config
         );
