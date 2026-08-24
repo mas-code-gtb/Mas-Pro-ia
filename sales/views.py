@@ -86,8 +86,7 @@ class InvoiceViewSet(viewsets.ModelViewSet):
     
     def perform_create(self, serializer):
         invoice = serializer.save(created_by=self.request.user)
-        # Envoyer l'email automatiquement après création
-        send_invoice_email(invoice.id)
+        # Email desactive automatiquement - utiliser le bouton "Envoyer par email" a la place
     
     @action(detail=True, methods=['post'])
     def add_line(self, request, pk=None):
